@@ -10,7 +10,166 @@
       box-sizing: border-box;
       font-family: Arial, sans-serif;
     }
+<!-- VOTING SECTION -->
+<section id="voting" style="padding:50px 20px; background:#f7f7f7;">
 
+  <div style="max-width:900px; margin:auto;">
+
+    <h2 style="text-align:center; font-size:36px;">
+      Vote for Your Favorite
+    </h2>
+
+    <p style="text-align:center; color:#666;">
+      New York Runway Star 2026
+    </p>
+
+    <!-- Contestant 1 -->
+    <div style="background:white; padding:20px; margin:20px 0;
+                border-radius:15px; display:flex;
+                align-items:center; gap:20px;">
+
+      <img src="https://via.placeholder.com/100"
+           style="width:100px;height:100px;border-radius:50%;object-fit:cover;">
+
+      <div style="flex:1;">
+        <h3>Contestant 01</h3>
+        <p>New York, USA</p>
+        <p><b>Votes: <span id="votes1">0</span></b></p>
+      </div>
+
+      <button onclick="openVote('Contestant 01', 'votes1')"
+              style="padding:12px 25px;border:0;border-radius:8px;
+                     background:#111;color:white;cursor:pointer;">
+        VOTE
+      </button>
+
+    </div>
+
+
+    <!-- Contestant 2 -->
+    <div style="background:white; padding:20px; margin:20px 0;
+                border-radius:15px; display:flex;
+                align-items:center; gap:20px;">
+
+      <img src="https://via.placeholder.com/100"
+           style="width:100px;height:100px;border-radius:50%;object-fit:cover;">
+
+      <div style="flex:1;">
+        <h3>Contestant 02</h3>
+        <p>Los Angeles, USA</p>
+        <p><b>Votes: <span id="votes2">0</span></b></p>
+      </div>
+
+      <button onclick="openVote('Contestant 02', 'votes2')"
+              style="padding:12px 25px;border:0;border-radius:8px;
+                     background:#111;color:white;cursor:pointer;">
+        VOTE
+      </button>
+
+    </div>
+
+
+    <!-- Voting Box -->
+    <div id="voteBox"
+         style="display:none;background:white;padding:25px;
+                border-radius:15px;margin-top:30px;">
+
+      <h2>Cast Your Vote</h2>
+
+      <p id="selectedName"></p>
+
+      <label>Number of Votes</label>
+
+      <input id="voteNumber"
+             type="number"
+             min="1"
+             value="1"
+             oninput="calculateAmount()"
+             style="width:100%;padding:14px;margin:10px 0;
+                    border:1px solid #ccc;border-radius:8px;">
+
+      <h3>
+        Total Amount: $<span id="amount">1</span>
+      </h3>
+
+      <button onclick="payForVotes()"
+              style="width:100%;padding:15px;border:0;
+                     border-radius:8px;background:#008000;
+                     color:white;font-size:17px;font-weight:bold;">
+        CONTINUE TO PAYMENT
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+let selectedContestant = "";
+let selectedVoteId = "";
+
+const pricePerVote = 1;
+
+function openVote(name, voteId) {
+
+  selectedContestant = name;
+  selectedVoteId = voteId;
+
+  document.getElementById("selectedName").innerText =
+    "Selected Contestant: " + name;
+
+  document.getElementById("voteBox").style.display = "block";
+
+  document.getElementById("voteBox").scrollIntoView({
+    behavior: "smooth"
+  });
+
+}
+
+function calculateAmount() {
+
+  let votes = Number(
+    document.getElementById("voteNumber").value
+  );
+
+  if (votes < 1) votes = 1;
+
+  document.getElementById("amount").innerText =
+    votes * pricePerVote;
+
+}
+
+function payForVotes() {
+
+  let votes = Number(
+    document.getElementById("voteNumber").value
+  );
+
+  if (!selectedContestant) {
+    alert("Please select a contestant.");
+    return;
+  }
+
+  if (votes < 1) {
+    alert("Please enter valid votes.");
+    return;
+  }
+
+  let amount = votes * pricePerVote;
+
+  alert(
+    "Contestant: " + selectedContestant +
+    "\nVotes: " + votes +
+    "\nAmount: $" + amount +
+    "\n\nPayment gateway will be connected next."
+  );
+
+}
+
+</script>
     body {
       margin: 0;
       background: #f5f5f5;
