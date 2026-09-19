@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vote - New York Runway Star 2026</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    .header {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .header p {
+      margin: 8px 0 0;
+      color: #ddd;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 15px;
+    }
+
+    .contestant {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .contestant img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .contestant-info {
+      flex: 1;
+    }
+
+    .contestant-info h2 {
+      margin: 0 0 8px;
+    }
+
+    .contestant-info p {
+      margin: 5px 0;
+      color: #666;
+    }
+
+    .vote-btn {
+      border: none;
+      background: #111;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .vote-btn:hover {
+      background: #333;
+    }
+
+    .vote-box {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      margin-top: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .vote-box input {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .pay-btn {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #008000;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #selectedContestant {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    #total {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>New York Runway Star 2026</h1>
+    <p>Vote for your favorite contestant</p>
+  </div>
+
+  <div class="container">
+
+    <!-- Contestant 1 -->
+    <div class="contestant">
+      <img src="https://via.placeholder.com/100" alt="Contestant">
+      <div class="contestant-info">
+        <h2>Contestant 01</h2>
+        <p>New York, USA</p>
+      </div>
+      <button class="vote-btn" onclick="selectContestant('Contestant 01')">
+        Vote
+      </button>
+    </div>
+
+    <!-- Contestant 2 -->
+    <div class="contestant">
+      <img src="https://via.placeholder.com/100" alt="Contestant">
+      <div class="contestant-info">
+        <h2>Contestant 02</h2>
+        <p>Los Angeles, USA</p>
+      </div>
+      <button class="vote-btn" onclick="selectContestant('Contestant 02')">
+        Vote
+      </button>
+    </div>
+
+    <!-- Voting Box -->
+    <div class="vote-box">
+
+      <h2>Cast Your Vote</h2>
+
+      <p id="selectedContestant">
+        Please select a contestant.
+      </p>
+
+      <label>Number of Votes</label>
+
+      <input
+        type="number"
+        id="voteCount"
+        min="1"
+        value="1"
+        oninput="calculateTotal()"
+      >
+
+      <p id="total">
+        Total: $1
+      </p>
+
+      <button class="pay-btn" onclick="startPayment()">
+        Continue to Payment
+      </button>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    let selectedContestant = "";
+    const pricePerVote = 1;
+
+    function selectContestant(name) {
+      selectedContestant = name;
+
+      document.getElementById("selectedContestant").innerText =
+        "Selected: " + name;
+
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+      });
+    }
+
+    function calculateTotal() {
+
+      let votes = Number(
+        document.getElementById("voteCount").value
+      );
+
+      if (votes < 1) {
+        votes = 1;
+      }
+
+      let total = votes * pricePerVote;
+
+      document.getElementById("total").innerText =
+        "Total: $" + total;
+    }
+
+    function startPayment() {
+
+      if (selectedContestant === "") {
+        alert("Please select a contestant first.");
+        return;
+      }
+
+      let votes = Number(
+        document.getElementById("voteCount").value
+      );
+
+      if (votes < 1) {
+        alert("Please enter a valid number of votes.");
+        return;
+      }
+
+      let total = votes * pricePerVote;
+
+      alert(
+        "Contestant: " +
+        selectedContestant +
+        "\nVotes: " +
+        votes +
+        "\nAmount: $" +
+        total +
+        "\n\nPayment gateway will be connected next."
+      );
+    }
+
+  </script>
+
+</body>
+</html>
