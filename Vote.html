@@ -93,11 +93,40 @@
       </h3>
 
       <button onclick="payForVotes()"
-              style="width:100%;padding:15px;border:0;
-                     border-radius:8px;background:#008000;
-                     color:white;font-size:17px;font-weight:bold;">
-        CONTINUE TO PAYMENT
-      </button>
+          <script>
+function payForVotes() {
+
+  let votes = Number(document.getElementById("voteNumber").value);
+
+  if (!selectedContestant) {
+    alert("Please select a contestant.");
+    return;
+  }
+
+  if (votes < 1) {
+    alert("Please enter valid votes.");
+    return;
+  }
+
+  let amount = votes * pricePerVote;
+
+  let message =
+    "Hello, I want to vote for " +
+    selectedContestant +
+    ". Votes: " +
+    votes +
+    ". Total amount: $" +
+    amount;
+
+  let instagramUsername = newyorkrunawaystar
+
+  let instagramURL =https://www.instagram.com/newyorkrunwaystar?stkn=YnBxYmtoazRxZmlm
+    "https://ig.me/m/" + instagramUsername; newyorkrunwaystar 
+
+  window.open(instagramURL, "_blank");
+
+}
+</script>
 
     </div>
 
