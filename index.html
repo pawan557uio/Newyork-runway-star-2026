@@ -1,459 +1,279 @@
-          <<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>New York Runway Star 2026</title>
+    <title>New York Runway Star 2026</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b0b;
+            color: white;
+        }
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #000;
-      color: #fff;
-    }
+        /* Header */
+        header {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 7%;
+            background: #000;
+            border-bottom: 1px solid #333;
+        }
 
-    header {
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #333;
-      position: sticky;
-      top: 0;
-      background: #000;
-      z-index: 1000;
-    }
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
 
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
 
-    .btn {
-      display: inline-block;
-      padding: 12px 22px;
-      background: #fff;
-      color: #000;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-    }
+        nav a:hover {
+            color: #d4af37;
+        }
 
-    .hero {
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px;
-    }
+        /* Hero */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background:
+                linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.8)),
+                url("images/model-01.jpg");
+            background-size: cover;
+            background-position: center;
+        }
 
-    .hero h1 {
-      font-size: clamp(42px, 8vw, 90px);
-      margin: 0;
-      letter-spacing: 4px;
-    }
+        .hero-content h1 {
+            font-size: clamp(42px, 8vw, 85px);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
 
-    .hero p {
-      font-size: 20px;
-      color: #ccc;
-      max-width: 700px;
-      line-height: 1.6;
-    }
+        .hero-content p {
+            margin-top: 15px;
+            font-size: 20px;
+            letter-spacing: 3px;
+            color: #d4af37;
+        }
 
-    .prize {
-      font-size: 42px;
-      font-weight: bold;
-      margin: 25px 0;
-    }
+        .hero-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 30px;
+            background: #d4af37;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+        }
 
-    section {
-      padding: 70px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+        /* Featured Model */
+        .section {
+            padding: 70px 20px;
+            text-align: center;
+        }
 
-    h2 {
-      text-align: center;
-      font-size: 38px;
-      margin-bottom: 35px;
-    }
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
 
-    .card {
-      background: #111;
-      border: 1px solid #333;
-      border-radius: 20px;
-      padding: 30px;
-      max-width: 650px;
-      margin: auto;
-    }
+        .section-subtitle {
+            color: #aaa;
+            margin-bottom: 40px;
+        }
 
-    label {
-      display: block;
-      margin: 18px 0 8px;
-      font-weight: bold;
-    }
+        .model-card {
+            max-width: 380px;
+            margin: auto;
+            background: #151515;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0,0,0,.5);
+        }
 
-    input {
-      width: 100%;
-      padding: 15px;
-      border-radius: 10px;
-      border: 1px solid #444;
-      background: #000;
-      color: #fff;
-      font-size: 16px;
-    }
+        .model-card img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
 
-    input:focus {
-      outline: none;
-      border-color: #fff;
-    }
+        .model-info {
+            padding: 25px;
+        }
 
-    .submit-btn {
-      width: 100%;
-      margin-top: 25px;
-      padding: 16px;
-      border: none;
-      border-radius: 30px;
-      background: #fff;
-      color: #000;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+        .model-info h3 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
 
-    .success {
-      display: none;
-      margin-top: 20px;
-      padding: 15px;
-      border-radius: 10px;
-      background: #fff;
-      color: #000;
-      text-align: center;
-      font-weight: bold;
-    }
+        .model-info p {
+            color: #aaa;
+        }
 
-    .contestants {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
+        /* About */
+        .about {
+            max-width: 900px;
+            margin: auto;
+            line-height: 1.8;
+            color: #ccc;
+            font-size: 17px;
+        }
 
-    .contestant {
-      background: #111;
-      border: 1px solid #333;
-      border-radius: 18px;
-      padding: 25px;
-      text-align: center;
-    }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #000;
+            color: #888;
+            border-top: 1px solid #222;
+        }
 
-    .contestant-photo {
-      height: 250px;
-      background: #222;
-      border-radius: 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #777;
-      margin-bottom: 15px;
-    }
+        /* Mobile */
+        @media (max-width: 600px) {
 
-    .packages {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
 
-    .package {
-      background: #111;
-      border: 1px solid #333;
-      border-radius: 18px;
-      padding: 25px;
-      text-align: center;
-    }
+            nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
 
-    .package h3 {
-      font-size: 25px;
-    }
+            .hero {
+                min-height: 60vh;
+            }
 
-    .package p {
-      color: #ccc;
-    }
+            .model-card {
+                width: 95%;
+            }
 
-    .instagram {
-      text-align: center;
-    }
-
-    footer {
-      border-top: 1px solid #333;
-      padding: 30px 20px;
-      text-align: center;
-      color: #888;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        padding: 15px;
-      }
-
-      .logo {
-        font-size: 15px;
-      }
-
-      .hero {
-        min-height: 70vh;
-      }
-    }
-  </style>
+            .model-card img {
+                height: 430px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">NEW YORK RUNWAY STAR 2026</div>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            NY RUNWAY STAR
+        </div>
 
-  <a
-    class="btn"
-    href="https://www.instagram.com/newyorkrunwaystar/"
-    target="_blank"
-  >
-    INSTAGRAM
-  </a>
-</header>
-
-<section class="hero">
-  <h1>RUNWAY STAR</h1>
-
-  <p>
-    Become the Next New York Runway Star 2026.
-    Register now and get a chance to be featured.
-  </p>
-
-  <div class="prize">$10,000</div>
-
-  <a href="#registration" class="btn">ENTER NOW</a>
-</section>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#model">Model</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
 
 
-<!-- REGISTRATION -->
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
 
-<section id="registration">
+            <h1>New York Runway Star</h1>
 
-  <h2>Registration</h2>
+            <p>2026</p>
 
-  <form
-    class="card"
-    id="registrationForm"
-  >
+            <a href="#model" class="hero-button">
+                VIEW FEATURED MODEL
+            </a>
 
-    <label for="name">Full Name</label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      placeholder="Enter your full name"
-      required
-    >
-
-    <label for="instagram">Instagram Username</label>
-    <input
-      type="text"
-      id="instagram"
-      name="instagram"
-      placeholder="@yourusername"
-      required
-    >
-
-    <label for="city">City / State</label>
-    <input
-      type="text"
-      id="city"
-      name="city"
-      placeholder="New York, NY"
-      required
-    >
-
-    <label for="photo">Profile Photo URL</label>
-    <input
-      type="url"
-      id="photo"
-      name="photo"
-      placeholder="https://..."
-    >
-
-    <button type="submit" class="submit-btn">
-      REGISTER NOW
-    </button>
-
-    <div id="successMessage" class="success">
-      Registration submitted successfully! 🎉
-    </div>
-
-  </form>
-
-</section>
+        </div>
+    </section>
 
 
-<!-- CONTESTANTS -->
+    <!-- MODEL SECTION -->
+    <section class="section" id="model">
 
-<section id="contestants">
+        <h2 class="section-title">
+            Featured Model
+        </h2>
 
-  <h2>Contestants</h2>
+        <p class="section-subtitle">
+            New York Runway Star 2026
+        </p>
 
-  <div class="contestants">
+        <div class="model-card">
 
-    <div class="contestant">
-      <div class="contestant-photo">
-        Contestant Photo
-      </div>
-      <h3>Mirella</h3>
-      <p>New York City</p>
-    </div>
+            <!-- YOUR PHOTO -->
+            <img
+                src="images/model-01.jpg"
+                alt="Featured Model - New York Runway Star 2026"
+            >
 
-    <div class="contestant">
-      <div class="contestant-photo">
-        Contestant Photo
-      </div>
-      <h3>Contestant 02</h3>
-      <p>New York City</p>
-    </div>
+            <div class="model-info">
 
-    <div class="contestant">
-      <div class="contestant-photo">
-        Contestant Photo
-      </div>
-      <h3>Contestant 03</h3>
-      <p>New York City</p>
-    </div>
+                <h3>
+                    New York Runway Star 2026
+                </h3>
 
-  </div>
+                <p>
+                    Featured Model
+                </p>
 
-</section>
+            </div>
 
+        </div>
 
-<!-- VOTING -->
-
-<section id="voting">
-
-  <h2>Vote For Your Favorite</h2>
-
-  <div class="packages">
-
-    <div class="package">
-      <h3>100 Votes</h3>
-      <p>$100</p>
-      <button class="btn" onclick="buyVotes(100,100)">
-        BUY VOTES
-      </button>
-    </div>
-
-    <div class="package">
-      <h3>300 Votes</h3>
-      <p>$300</p>
-      <button class="btn" onclick="buyVotes(300,300)">
-        BUY VOTES
-      </button>
-    </div>
-
-    <div class="package">
-      <h3>700 Votes</h3>
-      <p>$700</p>
-      <button class="btn" onclick="buyVotes(700,700)">
-        BUY VOTES
-      </button>
-    </div>
-
-    <div class="package">
-      <h3>1,000 Votes</h3>
-      <p>$1,000</p>
-      <button class="btn" onclick="buyVotes(1000,1000)">
-        BUY VOTES
-      </button>
-    </div>
-
-  </div>
-
-</section>
+    </section>
 
 
-<!-- INSTAGRAM -->
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
 
-<section class="instagram">
+        <h2 class="section-title">
+            About The Event
+        </h2>
 
-  <h2>Follow Us</h2>
+        <div class="about">
 
-  <p>
-    Follow New York Runway Star 2026 on Instagram
-  </p>
+            <p>
+                Welcome to New York Runway Star 2026,
+                a fashion and runway showcase celebrating
+                style, creativity and emerging talent.
+            </p>
 
-  <a
-    class="btn"
-    href="https://www.instagram.com/newyorkrunwaystar/"
-    target="_blank"
-  >
-    @newyorkrunwaystar
-  </a>
+        </div>
 
-</section>
-
-
-<footer>
-  © 2026 New York Runway Star. All Rights Reserved.
-</footer>
+    </section>
 
 
-<script>
+    <!-- FOOTER -->
+    <footer>
 
-  // NORMAL REGISTRATION
-  document
-    .getElementById("registrationForm")
-    .addEventListener("submit", function(event) {
+        <p>
+            © 2026 New York Runway Star. All Rights Reserved.
+        </p>
 
-      event.preventDefault();
-
-      document.getElementById("successMessage").style.display = "block";
-
-      this.reset();
-
-      setTimeout(function() {
-        document.getElementById("successMessage").style.display = "none";
-      }, 5000);
-
-    });
-
-
-  // VOTING
-  function buyVotes(votes, price) {
-
-    const message =
-      "Hello, I want to buy " +
-      votes +
-      " votes for $" +
-      price +
-      " for New York Runway Star 2026.";
-
-    const instagramURL =
-      "https://www.instagram.com/newyorkrunwaystar/";
-
-    window.open(instagramURL, "_blank");
-
-  }
-
-</script>
+    </footer>
 
 </body>
-          </html>
+</html>
