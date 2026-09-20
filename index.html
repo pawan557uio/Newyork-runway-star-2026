@@ -1,780 +1,470 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>New York Runway Star 2026</title>    <style>  
-    * {  
-      box-sizing: border-box;  
-    }  
-  
-    html {  
-      scroll-behavior: smooth;  
-    }  
-  
-    body {  
-      margin: 0;  
-      font-family: Arial, Helvetica, sans-serif;  
-      background: #0b0b0b;  
-      color: #fff;  
-    }  
-  
-    a {  
-      text-decoration: none;  
-    }  
-  
-    .nav {  
-      min-height: 72px;  
-      padding: 15px 5%;  
-      display: flex;  
-      align-items: center;  
-      justify-content: space-between;  
-      background: #050505;  
-      border-bottom: 1px solid #222;  
-      position: sticky;  
-      top: 0;  
-      z-index: 1000;  
-    }  
-  
-    .logo {  
-      font-size: 20px;  
-      font-weight: 800;  
-      letter-spacing: 2px;  
-    }  
-  
-    .logo span {  
-      display: block;  
-      font-size: 12px;  
-      letter-spacing: 4px;  
-      margin-top: 3px;  
-    }  
-  
-    .nav-right {  
-      display: flex;  
-      gap: 10px;  
-      align-items: center;  
-    }  
-  
-    .btn {  
-      display: inline-block;  
-      padding: 13px 22px;  
-      border: 0;  
-      border-radius: 7px;  
-      background: #fff;  
-      color: #000;  
-      font-weight: 700;  
-      cursor: pointer;  
-      text-align: center;  
-      transition: .2s;  
-    }  
-  
-    .btn:hover {  
-      transform: translateY(-2px);  
-      opacity: .9;  
-    }  
-  
-    .btn.outline {  
-      background: transparent;  
-      color: #fff;  
-      border: 1px solid #fff;  
-    }  
-  
-    .btn.small {  
-      padding: 10px 15px;  
-      font-size: 13px;  
-    }  
-  
-    .hero {  
-      min-height: 650px;  
-      display: flex;  
-      align-items: center;  
-      justify-content: center;  
-      text-align: center;  
-      padding: 80px 20px;  
-  
-      background:  
-        linear-gradient(  
-          rgba(0,0,0,.70),  
-          rgba(0,0,0,.82)  
-        ),  
-        radial-gradient(  
-          circle at center,  
-          #444 0,  
-          #111 40%,  
-          #050505 75%  
-        );  
-    }  
-  
-    .hero-overlay {  
-      max-width: 850px;  
-    }  
-  
-    .eyebrow {  
-      font-size: 13px;  
-      letter-spacing: 4px;  
-      font-weight: 700;  
-      color: #ccc;  
-    }  
-  
-    .hero h1 {  
-      font-size: clamp(45px, 8vw, 90px);  
-      line-height: .95;  
-      margin: 20px 0;  
-    }  
-  
-    .lead {  
-      color: #ccc;  
-      font-size: 18px;  
-      margin-bottom: 35px;  
-    }  
-  
-    .actions {  
-      display: flex;  
-      justify-content: center;  
-      gap: 12px;  
-      flex-wrap: wrap;  
-    }  
-  
-    .prize {  
-      text-align: center;  
-      padding: 70px 20px;  
-      background: #fff;  
-      color: #000;  
-    }  
-  
-    .prize h2 {  
-      font-size: clamp(55px, 8vw, 90px);  
-      margin: 10px 0;  
-    }  
-  
-    .section {  
-      padding: 80px 20px;  
-      max-width: 1100px;  
-      margin: auto;  
-    }  
-  
-    .section h2 {  
-      font-size: 42px;  
-      margin: 10px 0 12px;  
-    }  
-  
-    .muted {  
-      color: #aaa;  
-    }  
-  
-    .dark {  
-      max-width: none;  
-      background: #0b0b0b;  
-    }  
-  
-    .card {  
-      max-width: 650px;  
-      margin: 35px auto 0;  
-      padding: 30px;  
-      background: #151515;  
-      border: 1px solid #292929;  
-      border-radius: 16px;  
-      display: flex;  
-      flex-direction: column;  
-      gap: 15px;  
-    }  
-  
-    .card input {  
-      width: 100%;  
-      padding: 15px;  
-      border: 1px solid #333;  
-      border-radius: 8px;  
-      background: #0b0b0b;  
-      color: #fff;  
-      font-size: 15px;  
-      outline: none;  
-    }  
-  
-    .card input:focus {  
-      border-color: #fff;  
-    }  
-  
-    .contestants {  
-      max-width: 1100px;  
-      margin: 35px auto 0;  
-      display: grid;  
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));  
-      gap: 20px;  
-    }  
-  
-    .contestant {  
-      padding: 30px 20px;  
-      background: #151515;  
-      border: 1px solid #292929;  
-      border-radius: 16px;  
-      text-align: center;  
-    }  
-  
-    .avatar {  
-      width: 100px;  
-      height: 100px;  
-      margin: auto;  
-      border-radius: 50%;  
-      display: flex;  
-      align-items: center;  
-      justify-content: center;  
-      background: #fff;  
-      color: #000;  
-      font-size: 28px;  
-      font-weight: 800;  
-    }  
-  
-    .contestant h3 {  
-      margin: 20px 0 8px;  
-    }  
-  
-    .contestant p {  
-      color: #aaa;  
-    }  
-  
-    .vote-box {  
-      display: none;  
-      max-width: 500px;  
-      margin: 35px auto 0;  
-      padding: 30px;  
-      background: #fff;  
-      color: #000;  
-      border-radius: 15px;  
-    }  
-  
-    .vote-box input {  
-      width: 100%;  
-      padding: 14px;  
-      margin: 10px 0;  
-      border: 1px solid #ccc;  
-      border-radius: 8px;  
-      font-size: 16px;  
-    }  
-  
-    .vote-box button {  
-      width: 100%;  
-    }  
-  
-    .voting-packages {  
-      padding: 80px 20px;  
-      background: #080808;  
-      text-align: center;  
-    }  
-  
-    .packages {  
-      max-width: 1100px;  
-      margin: 35px auto 0;  
-      display: grid;  
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));  
-      gap: 20px;  
-    }  
-  
-    .vote-package {  
-      padding: 30px 20px;  
-      background: #151515;  
-      border: 1px solid #333;  
-      border-radius: 16px;  
-    }  
-  
-    .vote-package h3 {  
-      font-size: 21px;  
-    }  
-  
-    .price {  
-      font-size: 32px;  
-      font-weight: 800;  
-      margin: 20px 0;  
-    }  
-  
-    .vote-package button {  
-      width: 100%;  
-      padding: 13px;  
-      border: 0;  
-      border-radius: 8px;  
-      background: #fff;  
-      color: #000;  
-      font-weight: 700;  
-      cursor: pointer;  
-    }  
-  
-    .steps {  
-      margin-top: 35px;  
-      display: grid;  
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));  
-      gap: 20px;  
-    }  
-  
-    .steps > div {  
-      padding: 25px;  
-      border: 1px solid #292929;  
-      border-radius: 14px;  
-    }  
-  
-    .steps b {  
-      font-size: 35px;  
-    }  
-  
-    .instagram-section {  
-      padding: 70px 20px;  
-      text-align: center;  
-      background: #fff;  
-      color: #000;  
-    }  
-  
-    .instagram-section h2 {  
-      margin-bottom: 10px;  
-    }  
-  
-    .instagram-btn {  
-      display: inline-block;  
-      margin-top: 20px;  
-      padding: 14px 25px;  
-      background: #000;  
-      color: #fff;  
-      border-radius: 8px;  
-      font-weight: 700;  
-    }  
-  
-    footer {  
-      padding: 45px 20px;  
-      text-align: center;  
-      background: #050505;  
-      border-top: 1px solid #222;  
-    }  
-  
-    footer p {  
-      color: #999;  
-    }  
-  
-    footer a {  
-      color: #fff;  
-    }  
-  
-    @media (max-width: 650px) {  
-      .nav {  
-        padding: 12px 15px;  
-      }  
-  
-      .logo {  
-        font-size: 15px;  
-      }  
-  
-      .nav-right .btn.small {  
-        padding: 8px 10px;  
-        font-size: 11px;  
-      }  
-  
-      .hero {  
-        min-height: 570px;  
-      }  
-  
-      .hero h1 {  
-        font-size: 48px;  
-      }  
-  
-      .section h2 {  
-        font-size: 32px;  
-      }  
-  
-      .card {  
-        padding: 20px;  
-      }  
-    }  
-  </style>  </head>  <body>  <header class="nav">    <div class="logo">  
-    NEW YORK  
-    <span>RUNWAY STAR</span>  
-  </div>    <div class="nav-right">  <a  
-  class="btn small"  
-  href="https://www.instagram.com/newyorkrunwaystar/"  
-  target="_blank"  
-  rel="noopener noreferrer"  
->  
-  INSTAGRAM  
-</a>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<a class="btn small" href="#register">  
-  ENTER NOW  
-</a>
+<title>New York Runway Star 2026</title>
 
-  </div>  </header>  <section class="hero">    <div class="hero-overlay">  <p class="eyebrow">  
-  NEW YORK • 2026  
-</p>  
-
-<h1>  
-  Become the Next<br>  
-  RUNWAY STAR  
-</h1>  
-
-<p class="lead">  
-  Show your style. Build your profile.  
-  Let the audience vote.  
-</p>  
-
-<div class="actions">  
-
-  <a class="btn" href="#register">  
-    REGISTER NOW  
-  </a>  
-
-  <a class="btn outline" href="#voting">  
-    VOTE FOR A STAR  
-  </a>  
-
-</div>
-
-  </div>  </section>  <section class="prize">    <p class="eyebrow">  
-    THE GRAND PRIZE  
-  </p>    <h2>  
-    $10,000  
-  </h2>    <p>  
-    Plus featured promotion, finalist recognition  
-    and a New York runway experience.  
-  </p>  </section>  <section class="section" id="register">    <p class="eyebrow">  
-    STEP 01  
-  </p>    <h2>  
-    Enter the Competition  
-  </h2>    <p class="muted">  
-    Submit your details and contestant profile.  
-  </p>    <form  
-    class="card"  
-    action="https://formsubmit.co/pkchoudhary1330@gmail.com"  
-    method="POST"  
-  >  <input required type="text" name="Full Name" placeholder="Full name">  
-
-<input required type="email" name="Email" placeholder="Email address">  
-
-<input  
-  required  
-  type="text"  
-  name="Instagram Username"  
-  placeholder="Instagram username"  
->  
-
-<input  
-  type="text"  
-  name="City / State"  
-  placeholder="City / State"  
->  
-
-<input  
-  type="url"  
-  name="Profile Photo URL"  
-  placeholder="Profile photo URL"  
->  
-
-<input  
-  type="hidden"  
-  name="_subject"  
-  value="New York Runway Star 2026 - New Registration"  
->  
-
-<input  
-  type="hidden"  
-  name="_captcha"  
-  value="false"  
->  
-
-<button class="btn" type="submit">  
-  SUBMIT REGISTRATION  
-</button>
-
-  </form>  </section>  <section class="section dark" id="voting">    <p class="eyebrow">  
-    STEP 02  
-  </p>    <h2>  
-    Vote for Your Favorite  
-  </h2>    <p class="muted">  
-    Choose a contestant to continue.  
-  </p>    <div class="contestants">  <article class="contestant">  
-
-  <div class="avatar">  
-    01  
-  </div>  
-
-  <h3>  
-    Mirella  
-  </h3>  
-
-  <p>  
-    New York City, USA 🇺🇸  
-  </p>  
-
-  <p>  
-    Contestant #001  
-  </p>  
-
-  <p>  
-    Votes:  
-    <span id="votes1">1,250</span>  
-  </p>  
-
-  <button  
-    class="btn"  
-    onclick="openVote <img src="Mirella.jpg" alt="Mirella">
-  
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-    VOTE  
-  </button>  
 
-</article>  
+body {
+  font-family: Arial, sans-serif;
+  background: #050505;
+  color: #fff;
+}
 
-<article class="contestant">  
+header {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
 
-  <div class="avatar">  
-    02  
-  </div>  
+.logo {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
 
-  <h3>  
-    Contestant 02  
-  </h3>  
+nav {
+  margin-top: 15px;
+}
 
-  <p>  
-    Votes:  
-    <span id="votes2">980</span>  
-  </p>  
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
 
-  <button  
-    class="btn"  
-    onclick="openVote('Contestant 02')"  
-  >  
-    VOTE  
-  </button>  
+.hero {
+  text-align: center;
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #111, #252525);
+}
 
-</article>  
+.hero h1 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
 
-<article class="contestant">  
+.hero p {
+  font-size: 20px;
+  margin: 10px 0;
+}
 
-  <div class="avatar">  
-    03  
-  </div>  
+.prize {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 25px 0;
+}
 
-  <h3>  
-    Contestant 03  
-  </h3>  
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
 
-  <p>  
-    Votes:  
-    <span id="votes3">760</span>  
-  </p>  
+.btn:hover {
+  transform: scale(1.05);
+}
 
-  <button  
-    class="btn"  
-    onclick="openVote('Contestant 03')"  
-  >  
-    VOTE  
-  </button>  
+section {
+  padding: 50px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
 
-</article>
+section h2 {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 35px;
+}
 
-  </div>    <div class="vote-box" id="voteBox">  <h2>  
-  Cast Your Vote  
-</h2>  
+.contestants {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
 
-<p id="selectedName"></p>  
+.contestant {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 18px;
+  padding: 25px;
+  text-align: center;
+}
 
-<label>  
-  Number of Votes  
-</label>  
+.avatar {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 800;
+}
 
-<input  
-  id="voteNumber"  
-  type="number"  
-  min="1"  
-  value="1"  
-  oninput="calculateAmount()"  
->  
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
 
-<h3>  
-  Total Amount:  
-  $<span id="amount">1</span>  
-</h3>  
+.contestant h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
 
-<button  
-  class="btn"  
-  onclick="payForVotes()"  
->  
-  CONTINUE TO INSTAGRAM  
-</button>
+.contestant p {
+  margin: 8px 0;
+  color: #ccc;
+}
 
-  </div>  </section>  <section class="voting-packages">    <p class="eyebrow">  
-    VOTING PACKAGES  
-  </p>    <h2>  
-    Choose Your Voting Package  
-  </h2>    <div class="packages">  <div class="vote-package">  
+.vote-count {
+  font-size: 18px;
+  margin: 15px 0;
+}
 
-  <h3>100 VOTES</h3>  
+.form-box {
+  max-width: 600px;
+  margin: auto;
+  background: #111;
+  padding: 30px;
+  border-radius: 18px;
+}
 
-  <div class="price">$100</div>  
+.form-box input {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+}
 
-  <button onclick="buyVotes(100,100)">  
-    BUY NOW  
-  </button>  
+.form-box button {
+  margin-top: 15px;
+  width: 100%;
+}
 
-</div>  
+.packages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
 
-<div class="vote-package">  
+.package {
+  background: #111;
+  border: 1px solid #333;
+  padding: 25px;
+  text-align: center;
+  border-radius: 15px;
+}
 
-  <h3>300 VOTES</h3>  
+.package h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
 
-  <div class="price">$300</div>  
+.package p {
+  margin-bottom: 15px;
+}
 
-  <button onclick="buyVotes(300,300)">  
-    BUY NOW  
-  </button>  
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid #333;
+  color: #aaa;
+}
 
-</div>  
+.instagram {
+  margin-top: 20px;
+}
 
-<div class="vote-package">  
+.instagram a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+</style>
+</head>
 
-  <h3>700 VOTES</h3>  
+<body>
 
-  <div class="price">$700</div>  
+<header>
+  <div class="logo">NEW YORK RUNWAY STAR 2026</div>
 
-  <button onclick="buyVotes(700,700)">  
-    BUY NOW  
-  </button>  
+  <nav>
+    <a href="#registration">Registration</a>
+    <a href="#contestants">Contestants</a>
+    <a href="#voting">Voting</a>
+    <a href="https://www.instagram.com/newyorkrunwaystar/" target="_blank">
+      Instagram
+    </a>
+  </nav>
+</header>
 
-</div>  
+<section class="hero">
+  <h1>Become the Next RUNWAY STAR</h1>
 
-<div class="vote-package">  
+  <p>New York Runway Star 2026</p>
 
-  <h3>1,000 VOTES</h3>  
+  <div class="prize">$10,000 PRIZE</div>
 
-  <div class="price">$1,000</div>  
+  <a href="#registration" class="btn">
+    ENTER NOW
+  </a>
+</section>
 
-  <button onclick="buyVotes(1000,1000)">  
-    BUY NOW  
-  </button>  
+<section id="registration">
 
-</div>
+  <h2>Contest Registration</h2>
 
-  </div>  </section>  <section class="section">    <p class="eyebrow">  
-    HOW IT WORKS  
-  </p>    <h2>  
-    Simple. Transparent. Public.  
-  </h2>    <div class="steps">  <div>  
-  <b>1</b>  
-  <h3>Register</h3>  
-  <p>Create your contestant profile.</p>  
-</div>  
+  <div class="form-box">
 
-<div>  
-  <b>2</b>  
-  <h3>Share</h3>  
-  <p>Share your profile with your audience.</p>  
-</div>  
+    <form action="https://formsubmit.co/pkchoudhary1330@gmail.com" method="POST">
 
-<div>  
-  <b>3</b>  
-  <h3>Get Votes</h3>  
-  <p>Votes are recorded through the official system.</p>  
-</div>
+      <input
+        type="text"
+        name="Full Name"
+        placeholder="Full Name"
+        required
+      >
 
-  </div>  </section>  <section class="instagram-section">    <h2>  
-    Follow New York Runway Star  
-  </h2>    <p>  
-    Follow us on Instagram for updates,  
-    contestants and announcements.  
-  </p>  <a
-class="instagram-btn"
-href="https://www.instagram.com/newyorkrunwaystar/"
-target="_blank"
-rel="noopener noreferrer"
+      <input
+        type="email"
+        name="Email"
+        placeholder="Email Address"
+        required
+      >
 
-> 
+      <input
+        type="text"
+        name="Instagram"
+        placeholder="Instagram Username"
+        required
+      >
 
-@newyorkrunwaystar
+      <input
+        type="text"
+        name="City"
+        placeholder="City / State"
+        required
+      >
 
-  </a>  </section>  <footer>    <strong>  
-    NEW YORK RUNWAY STAR 2026  
-  </strong>    <p>  
-    Official Rules • Terms • Privacy • Contact  
-  </p>    <p>  
-    <a  
-      href="https://www.instagram.com/newyorkrunwaystar/"  
-      target="_blank"  
-      rel="noopener noreferrer"  
-    >  
-      Instagram @newyorkrunwaystar  
-    </a>  
-  </p>    <small>  
-    © 2026 New York Runway Star.  
-    All rights reserved.  
-  </small>  </footer>  <script>  
-  
-let selectedContestant = "";  
-  
-const pricePerVote = 1;  
-  
-function openVote(name) {  
-  
-  selectedContestant = name;  
-  
-  document.getElementById("selectedName").innerText =  
-    "Selected Contestant: " + name;  
-  
-  document.getElementById("voteBox").style.display =  
-    "block";  
-  
-  document.getElementById("voteBox").scrollIntoView({  
-    behavior: "smooth"  
-  });  
-  
-}  
-  
-function calculateAmount() {  
-  
-  let votes =  
-    Number(  
-      document.getElementById("voteNumber").value  
-    );  
-  
-  if (votes < 1) {  
-    votes = 1;  
-  }  
-  
-  document.getElementById("amount").innerText =  
-    votes * pricePerVote;  
-  
-}  
-  
-function payForVotes() {  
-  
-  let votes =  
-    Number(  
-      document.getElementById("voteNumber").value  
-    );  
-  
-  if (!selectedContestant) {  
-    alert("Please select a contestant.");  
-    return;  
-  }  
-  
-  if (votes < 1) {  
-    alert("Please enter valid votes.");  
-    return;  
-  }  
-  
-  const instagramURL =  
-    "https://www.instagram.com/newyorkrunwaystar/";  
-  
-  window.open(  
-    instagramURL,  
-    "_blank",  
-    "noopener,noreferrer"  
-  );  
-  
-}  
-  
-function buyVotes(votes, price) {  
-  
-  const instagramURL =  
-    "https://www.instagram.com/newyorkrunwaystar/";  
-  
-  window.open(  
-    instagramURL,  
-    "_blank",  
-    "noopener,noreferrer"  
-  );  
-  
-}  
-  
-</script>  </body>  
+      <input
+        type="url"
+        name="Profile Photo"
+        placeholder="Profile Photo URL"
+      >
+
+      <input
+        type="hidden"
+        name="_subject"
+        value="New York Runway Star 2026 Registration"
+      >
+
+      <input
+        type="hidden"
+        name="_captcha"
+        value="false"
+      >
+
+      <button type="submit" class="btn">
+        REGISTER NOW
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+<section id="contestants">
+
+  <h2>Contestants</h2>
+
+  <div class="contestants">
+
+    <!-- MIRELLA -->
+
+    <article class="contestant">
+
+      <div class="avatar">
+        <img src="Mirella.jpg" alt="Mirella">
+      </div>
+
+      <h3>Mirella</h3>
+
+      <p>New York City, USA 🇺🇸</p>
+
+      <p>Contestant #001</p>
+
+      <p class="vote-count">
+        Votes:
+        <span id="votes1">1,250</span>
+      </p>
+
+      <button
+        class="btn"
+        onclick="openVote('Mirella')"
+      >
+        VOTE
+      </button>
+
+    </article>
+
+
+    <!-- CONTESTANT 02 -->
+
+    <article class="contestant">
+
+      <div class="avatar">
+        02
+      </div>
+
+      <h3>Contestant 02</h3>
+
+      <p>New York City, USA 🇺🇸</p>
+
+      <p>Contestant #002</p>
+
+      <p class="vote-count">
+        Votes:
+        <span>0</span>
+      </p>
+
+      <button
+        class="btn"
+        onclick="openVote('Contestant 02')"
+      >
+        VOTE
+      </button>
+
+    </article>
+
+
+    <!-- CONTESTANT 03 -->
+
+    <article class="contestant">
+
+      <div class="avatar">
+        03
+      </div>
+
+      <h3>Contestant 03</h3>
+
+      <p>New York City, USA 🇺🇸</p>
+
+      <p>Contestant #003</p>
+
+      <p class="vote-count">
+        Votes:
+        <span>0</span>
+      </p>
+
+      <button
+        class="btn"
+        onclick="openVote('Contestant 03')"
+      >
+        VOTE
+      </button>
+
+    </article>
+
+  </div>
+
+</section>
+
+<section id="voting">
+
+  <h2>Voting Packages</h2>
+
+  <div class="packages">
+
+    <div class="package">
+      <h3>100 Votes</h3>
+      <p>$100</p>
+      <button class="btn" onclick="openVote('100 Votes')">
+        BUY
+      </button>
+    </div>
+
+    <div class="package">
+      <h3>300 Votes</h3>
+      <p>$300</p>
+      <button class="btn" onclick="openVote('300 Votes')">
+        BUY
+      </button>
+    </div>
+
+    <div class="package">
+      <h3>700 Votes</h3>
+      <p>$700</p>
+      <button class="btn" onclick="openVote('700 Votes')">
+        BUY
+      </button>
+    </div>
+
+    <div class="package">
+      <h3>1,000 Votes</h3>
+      <p>$1,000</p>
+      <button class="btn" onclick="openVote('1,000 Votes')">
+        BUY
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+
+  <p>
+    © 2026 New York Runway Star
+  </p>
+
+  <div class="instagram">
+    <a
+      href="https://www.instagram.com/newyorkrunwaystar/"
+      target="_blank"
+    >
+      Follow us on Instagram
+    </a>
+  </div>
+
+</footer>
+
+<script>
+
+function openVote(name) {
+
+  window.open(
+    "https://www.instagram.com/newyorkrunwaystar/",
+    "_blank"
+  );
+
+}
+
+</script>
+
+</body>
 </html>
